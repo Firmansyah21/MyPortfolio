@@ -84,7 +84,7 @@
         <div class="infos">
           <h6 class="subtitle">hello,I'm</h6>
           <h6 class="title">Firmansyah</h6>
-          <p>UI/UX Designer</p>
+          <p>Fullstack Developer</p>
 
           <div class="buttons pt-3">
             <a href="assets/Cv Magang Firmansyah.pdf" target="_blank">
@@ -135,18 +135,14 @@
             <h6 class="title">Firmansyah</h6>
             <p class="subtitle"> Fullstack Developer </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Provident, pariatur, aperiam aut autem voluptas odit. Odio ducimus
-              delectus totam sed aliquam sequi praesentium mollitia, illum
-              repudiandae quidem quod, magni magnam.
+              Hello, I am Firmansyah, a 7th semester Informatics Engineering student at Nusa Putra University, Sukabumi.<br> 
+              I have experience in using Laravel, HTML, CSS, Tailwind CSS, and JavaScript.<br> 
+              My expertise includes front-end and back-end development, with a career interest as a Full-stack Developer.<br> 
+              I have gained knowledge and skills through my studies and previous projects, with an additional focus on the PHP programming language.<br> 
+              I believe that I can apply this learning experience effectively in the workplace.<br> 
+              Thank you for your attention.
             </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
-              eius, nam. Quo praesentium qui temporibus voluptatum, facilis
-              aliquid eligendi fugiat beatae neque inventore non. Laborum
-              repellendus consequatur ullam voluptatum asperiores.
-            </p>
-            <button class="btn btn-primary rounded mt-3">DOWNLOAD CV</button>
+            <!-- <button class="btn btn-primary rounded mt-3">DOWNLOAD CV</button> -->
           </div>
         </div>
       </div>
@@ -155,12 +151,11 @@
     <!-- Service section -->
     <section id="service" class="section">
       <div class="container text-center">
-        <h6 class="subtitle">Service</h6>
+        <h6 class="subtitle">Services</h6>
         <h6 class="section-title mb-4">What I Do</h6>
         <p class="mb-5 pb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias
-          dignissimos. <br />
-          rerum commodi corrupti, temporibus non quam.
+          As a Full-stack Developer, I offer a range of services from website development to software solutions. My expertise includes front-end and back-end development using technologies such as Laravel, PHP,  HTML, CSS, Tailwind CSS, and JavaScript. <br />
+          I am dedicated to providing efficient and reliable digital solutions to meet your needs.
         </p>
 
         <div class="row">
@@ -221,11 +216,10 @@
     <section id="portfolio" class="section">
       <div class="container text-center">
         <h6 class="subtitle">Portfolio</h6>
-        <h6 class="section-title mb-4">Check My Wonderful Works</h6>
+        <h6 class="section-title mb-4">Explore My Creative Works</h6>
         <p class="mb-5 pb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias
-          dignissimos. <br />
-          rerum commodi corrupti, temporibus non quam.
+          Welcome to my portfolio. Here, you'll find a collection of my most recent works, showcasing my skills and creativity. <br />
+          Each project is a testament to my dedication and passion for my craft. Enjoy browsing!
         </p>
 
         <div class="row">
@@ -292,21 +286,21 @@
         <h6 class="subtitle">Contact</h6>
         <h6 class="section-title mb-4">Get In Touch With Me</h6>
         <p class="mb-5 pb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias
-          dignissimos. <br />
-          rerum commodi corrupti, temporibus non quam.
+          If you have any questions, or if you just want to say hi, don't hesitate to get in touch. <br />
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </p>
 
         <div class="contact text-left">
           <div class="form">
             <h6 class="section-title mb-4">Get In Touch</h6>
-            <form>
+            <form method="post" id="contactForm">
               <div class="form-group">
                 <input
                   type="email"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  name="email"
                   placeholder="Enter email"
                   required
                 />
@@ -314,7 +308,7 @@
          
               <div class="form-group">
                 <textarea
-                  name="contact-message"
+                  name="message"
                   id=""
                   cols="30"
                   rows="5"
@@ -323,13 +317,14 @@
                 ></textarea>
               </div>
               <button
-                type="submit"
+                type="button"
                 class="btn btn-primary btn-block rounded w-lg"
               >
                 Send Message
               </button>
             </form>
           </div>
+          <!-- ... -->
           <div class="contact-infos">
             <div class="item">
               <i class="ti-location-pin"></i>
@@ -355,9 +350,6 @@
           </div>
         </div>
       </div>
-      <!-- <div id="map">
-        <iframe src="https://snazzymaps.com/embed/61257"></iframe>
-      </div> -->
     </section>
     <!-- End of Contact Section -->
 
@@ -367,12 +359,8 @@
         <div class="row align-items-center">
           <div class="col-sm-6">
             <p>
-              Copyright
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              &copy;
-              <a href="http://www.devcrud.com" target="_blank">DevCRUD</a>
+           
+              Firmansyah
             </p>
           </div>
           <div class="col-sm-6">
@@ -397,6 +385,33 @@
     <!-- End of page footer -->
 
     <!-- core  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  
+      <script>
+    $(document).ready(function() {
+        $("#submitBtn").click(function() {
+            // Dapatkan data formulir
+            var formData = $("#contactForm").serialize();
+
+            // Kirim permintaan AJAX
+            $.ajax({
+                type: "POST",
+                url: "send_email.php", // Ganti dengan path aktual ke skrip PHP Anda
+                data: formData,
+                success: function(response) {
+                    // Tampilkan pesan tanggapan (misalnya, sukses atau kesalahan)
+                    alert(response);
+                }
+            });
+        });
+    });
+</script>
+
+    
+
+
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
     <!-- bootstrap 3 affix -->
